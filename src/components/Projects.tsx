@@ -9,7 +9,7 @@ const projects = [
     status: "En cours",
     statusColor: "#22d3ee",
     category: "AI / NLP",
-    description: "Assistant IA qui repond aux questions des etudiants sur leurs cours universitaires. Fine-tuning d un modele Transformers sur corpus malgache et francais, un defi technique rarement documente.",
+    description: "Assistant IA qui repond aux questions des etudiants sur leurs cours universitaires. Fine-tuning d un modele Transformers sur corpus malgache et francais.",
     highlights: [
       "Fine-tuning BERT sur corpus malgache et francais",
       "Gestion de donnees peu documentees",
@@ -26,7 +26,7 @@ const projects = [
     status: "Termine",
     statusColor: "#4ade80",
     category: "AI Agents",
-    description: "Trois agents specialises travaillant ensemble : collecte d informations, analyse et redaction de synthese. Orchestration de grands modeles de langage sur des taches reelles avec gestion des dependances inter-agents.",
+    description: "Trois agents specialises : collecte d informations, analyse et redaction de synthese. Orchestration de grands modeles de langage avec gestion des dependances inter-agents.",
     highlights: [
       "3 agents IA specialises en pipeline",
       "Orchestration LLM avec LangChain",
@@ -39,28 +39,45 @@ const projects = [
   },
   {
     id: 3,
+    title: "Monitoring PostgreSQL",
+    status: "Termine",
+    statusColor: "#4ade80",
+    category: "Developpement Web",
+    description: "Application de monitoring et d administration de bases de donnees PostgreSQL. Interface React Vite avec backend Spring Boot, tableaux de bord en temps reel et alertes automatiques.",
+    highlights: [
+      "Dashboard temps reel des metriques DB",
+      "API REST Spring Boot securisee",
+      "Alertes automatiques sur seuils critiques",
+    ],
+    tags: ["Spring Boot", "React Vite", "PostgreSQL", "Java", "REST API"],
+    icon: "🗄️",
+    gradient: "linear-gradient(135deg, rgba(34,197,94,0.15), rgba(59,94,166,0.1))",
+    border: "rgba(34,197,94,0.3)",
+  },
+  {
+    id: 4,
     title: "Pipeline CI/CD Automatise",
     status: "Termine",
     statusColor: "#4ade80",
     category: "DevOps",
-    description: "Workflow complet de compilation, tests et deploiement declenche automatiquement apres chaque commit. Zero intervention manuelle apres la mise en place, reduction significative du cycle de livraison.",
+    description: "Workflow complet de compilation, tests et deploiement declenche automatiquement apres chaque commit. Zero intervention manuelle, reduction significative du cycle de livraison.",
     highlights: [
       "Deploiement automatique apres chaque commit",
-      "Zero intervention manuelle",
-      "Reduction du cycle de livraison",
+      "Containerisation Docker + GKE",
+      "Infrastructure as Code avec Terraform",
     ],
-    tags: ["GitHub Actions", "JavaScript", "Linux", "CI/CD"],
+    tags: ["GitHub Actions", "Docker", "Kubernetes", "GKE", "Terraform"],
     icon: "⚙️",
     gradient: "linear-gradient(135deg, rgba(251,146,60,0.12), rgba(59,94,166,0.1))",
     border: "rgba(251,146,60,0.3)",
   },
   {
-    id: 4,
+    id: 5,
     title: "Analyse SOC et SIEM",
     status: "Termine",
     statusColor: "#4ade80",
     category: "Cybersecurite",
-    description: "Suivi d evenements de securite sur environnement simule, correlation de logs et redaction de rapports d incidents. Competence directement valorisable pour la protection des infrastructures telecoms.",
+    description: "Suivi d evenements de securite sur environnement simule, correlation de logs et redaction de rapports d incidents. Competence valorisable pour la protection des infrastructures telecoms.",
     highlights: [
       "Correlation de logs multi-sources",
       "Redaction de rapports d incidents",
@@ -72,31 +89,31 @@ const projects = [
     border: "rgba(239,68,68,0.3)",
   },
   {
-    id: 5,
+    id: 6,
     title: "Application Web Gestion Logistique",
     status: "Termine",
     statusColor: "#4ade80",
     category: "Developpement Web",
-    description: "Conception et developpement complet d une application web de gestion des ressources logistiques pour l Etat-Major de l Armee de l Air. De la maquette jusqu a la mise en production en totale autonomie.",
+    description: "Conception et developpement complet d une application web de gestion des ressources logistiques pour l Etat-Major de l Armee de l Air. De la maquette jusqu a la mise en production.",
     highlights: [
       "Developpement full-stack en autonomie totale",
       "Deploye en production dans un environnement securise",
       "Formation des utilisateurs finaux assuree",
     ],
-    tags: ["JavaScript", "Java", "HTML/CSS", "API REST", "Linux"],
+    tags: ["Spring Boot", "JavaScript", "PostgreSQL", "HTML/CSS", "Linux"],
     icon: "🏛️",
-    gradient: "linear-gradient(135deg, rgba(34,197,94,0.12), rgba(59,94,166,0.1))",
-    border: "rgba(34,197,94,0.3)",
+    gradient: "linear-gradient(135deg, rgba(59,130,246,0.12), rgba(59,94,166,0.1))",
+    border: "rgba(59,130,246,0.3)",
   },
 ];
 
-const filters = ["Tous", "AI / NLP", "AI Agents", "DevOps", "Cybersecurite", "Developpement Web"];
+const filters = ["Tous", "AI / NLP", "AI Agents", "Developpement Web", "DevOps", "Cybersecurite"];
 
 export default function Projects() {
-  const [mounted,       setMounted]       = useState(false);
-  const [visible,       setVisible]       = useState(false);
-  const [activeFilter,  setActiveFilter]  = useState("Tous");
-  const [hoveredId,     setHoveredId]     = useState<number | null>(null);
+  const [mounted,      setMounted]      = useState(false);
+  const [visible,      setVisible]      = useState(false);
+  const [activeFilter, setActiveFilter] = useState("Tous");
+  const [hoveredId,    setHoveredId]    = useState<number | null>(null);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => { setMounted(true); }, []);
@@ -127,11 +144,7 @@ export default function Projects() {
   }
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      style={{ padding: "96px 0", backgroundColor: "#060d18" }}
-    >
+    <section id="projects" ref={ref} style={{ padding: "96px 0", backgroundColor: "#060d18" }}>
       <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
 
         {/* Header */}
@@ -141,9 +154,7 @@ export default function Projects() {
           transform: visible ? "translateY(0)" : "translateY(30px)",
           transition: "all 0.7s ease",
         }}>
-          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-            // projets
-          </p>
+          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>// projets</p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
             Projets <span style={{ color: "#22d3ee" }}>Significatifs</span>
           </h2>
@@ -156,24 +167,20 @@ export default function Projects() {
           opacity: visible ? 1 : 0, transition: "all 0.7s ease 0.1s",
         }}>
           {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              style={{
-                padding: "8px 18px", borderRadius: "8px",
-                fontSize: "13px", fontWeight: 500, cursor: "pointer",
-                transition: "all 0.2s",
-                backgroundColor: activeFilter === filter ? "#06b6d4" : "#112652",
-                color: activeFilter === filter ? "#060d18" : "#94a3b8",
-                border: `1px solid ${activeFilter === filter ? "#06b6d4" : "#1e3a70"}`,
-              }}
-            >
+            <button key={filter} onClick={() => setActiveFilter(filter)} style={{
+              padding: "8px 18px", borderRadius: "8px",
+              fontSize: "13px", fontWeight: 500, cursor: "pointer",
+              transition: "all 0.2s",
+              backgroundColor: activeFilter === filter ? "#06b6d4" : "#112652",
+              color: activeFilter === filter ? "#060d18" : "#94a3b8",
+              border: `1px solid ${activeFilter === filter ? "#06b6d4" : "#1e3a70"}`,
+            }}>
               {filter}
             </button>
           ))}
         </div>
 
-        {/* Projects grid */}
+        {/* Grid */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
@@ -187,21 +194,17 @@ export default function Projects() {
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
-                backgroundColor: "#0e1f3d",
+                backgroundColor: hoveredId === project.id ? "#0e1f3d" : "#0e1f3d",
                 border: `1px solid ${hoveredId === project.id ? project.border : "#1e3a70"}`,
-                borderRadius: "16px",
-                padding: "28px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-                transition: "all 0.3s ease",
-                cursor: "default",
+                borderRadius: "16px", padding: "28px",
+                display: "flex", flexDirection: "column", gap: "16px",
+                transition: "all 0.3s ease", cursor: "default",
                 transform: hoveredId === project.id ? "translateY(-4px)" : "translateY(0)",
                 boxShadow: hoveredId === project.id ? "0 12px 40px rgba(0,0,0,0.3)" : "none",
                 background: hoveredId === project.id ? project.gradient : "#0e1f3d",
               }}
             >
-              {/* Top row */}
+              {/* Top */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div style={{
                   width: "48px", height: "48px", borderRadius: "12px",
@@ -227,17 +230,14 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Title */}
               <h3 style={{ fontSize: "17px", fontWeight: 700, color: "#ffffff", lineHeight: 1.3 }}>
                 {project.title}
               </h3>
 
-              {/* Description */}
               <p style={{ fontSize: "13px", color: "#94a3b8", lineHeight: 1.7, flexGrow: 1 }}>
                 {project.description}
               </p>
 
-              {/* Highlights */}
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {project.highlights.map((h, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
@@ -247,7 +247,6 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Tags */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "4px" }}>
                 {project.tags.map((tag, i) => (
                   <span key={i} style={{
