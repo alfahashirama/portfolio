@@ -5,21 +5,21 @@ import { useState, useEffect, useRef } from "react";
 const projects = [
   {
     id: 1,
-    demoUrl: null,   // ex. Hugging Face Space une fois publié
-    repoUrl: null,   // ex. https://github.com/<vous>/chatbot-educatif
+    demoUrl: "https://huggingface.co/spaces/alfa2025/demo_anonyme",
+    repoUrl: null,   // à remplir si vous publiez aussi le code sur GitHub
     confidential: false,
-    title: "Chatbot éducatif multilingue",
-    status: "En cours",
-    statusColor: "#22d3ee",
+    title: "Anonymiseur RGPD de documents",
+    status: "Démo en ligne",
+    statusColor: "#4ade80",
     category: "IA & NLP",
-    description: "Assistant IA qui répond à des questions à partir d’un corpus de documents. Fine-tuning d’un modèle Transformers sur un corpus malgache et français - la même approche s’applique à une base documentaire d’entreprise.",
+    description: "Détecte et masque les données personnelles d’un document français : noms, lieux, dates, e-mails, téléphones, IBAN et n° de sécurité sociale. Le modèle tourne dans le navigateur — aucun document n’est envoyé sur un serveur.",
     highlights: [
-      "Fine-tuning BERT sur corpus malgache et français",
-      "Gestion de données peu documentées",
-      "Réutilisable comme chatbot de support client",
+      "CamemBERT exécuté côté client via transformers.js",
+      "IBAN et n° de sécu vérifiés par leur clé de contrôle",
+      "Pseudonymes stables sur tout le document",
     ],
-    tags: ["NLP", "HuggingFace", "PyTorch", "BERT", "Python"],
-    icon: "🤖",
+    tags: ["NLP", "CamemBERT", "transformers.js", "ONNX", "NER", "RGPD"],
+    icon: "🔒",
     gradient: "linear-gradient(135deg, rgba(6,182,212,0.15), rgba(59,94,166,0.1))",
     border: "rgba(6,182,212,0.3)",
   },
@@ -96,7 +96,7 @@ const projects = [
     highlights: [
       "Corrélation de logs multi-sources",
       "Rédaction de rapports d’incidents",
-      "Valorisable pour infrastructures telecoms",
+      "Applications livrées durcies et supervisées",
     ],
     tags: ["Splunk", "Linux", "SIEM", "SOC", "Analyse de logs"],
     icon: "🔐",
@@ -152,7 +152,7 @@ export default function Projects() {
 
   if (!mounted) {
     return (
-      <section id="projects" style={{ padding: "96px 0", backgroundColor: "#060d18" }}>
+      <section id="projects" style={{ padding: "72px 0", backgroundColor: "#060d18" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// projets"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Projets <span style={{ color: "#22d3ee" }}>Significatifs</span></h2>
@@ -162,7 +162,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" ref={ref} style={{ padding: "96px 0", backgroundColor: "#060d18" }}>
+    <section id="projects" ref={ref} style={{ padding: "72px 0", backgroundColor: "#060d18" }}>
       <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
 
         {/* Header */}
@@ -202,6 +202,10 @@ export default function Projects() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          // Sans `start`, la grille étire chaque carte à la hauteur de la plus
+          // haute de sa ligne : les projets à description courte se retrouvaient
+          // avec jusqu'à 280 px de vide sous leur contenu.
+          alignItems: "start",
           gap: "24px",
           opacity: visible ? 1 : 0,
           transition: "all 0.7s ease 0.2s",
@@ -252,7 +256,9 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p style={{ fontSize: "13px", color: "#94a3b8", lineHeight: 1.7, flexGrow: 1 }}>
+              {/* Pas de flexGrow : il étirait la description et creusait un vide
+                  entre le texte et les points forts sur les cartes courtes. */}
+              <p style={{ fontSize: "13px", color: "#94a3b8", lineHeight: 1.7 }}>
                 {project.description}
               </p>
 

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Nasandratra Alfa
 
-## Getting Started
+Site vitrine de **RAMANATENANIAVO Nasandratra Alfa**, ingénieur informatique freelance
+spécialisé en développement full-stack et en intelligence artificielle (ML, DL, NLP).
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) · **React 19** · **TypeScript** strict
+- **Tailwind CSS 4** — thème déclaré en CSS dans `src/app/globals.css`, sans `tailwind.config.ts`
+- Polices auto-hébergées via `next/font` (Inter, Fira Code)
+- Déployé sur **Vercel**
+
+## Démarrer
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de production
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Page unique. `src/app/page.tsx` empile les composants de `src/components/` dans cet ordre :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Section | Rôle |
+|---|---|
+| `Hero` | Positionnement et appels à l'action |
+| `Services` | Prestations, déroulé d'une mission, modalités |
+| `About` | Parcours et références |
+| `Skills` | Compétences par domaine |
+| `Projects` | Réalisations, avec liens de démo quand ils existent |
+| `Certifications` | Certificats consultables en PDF |
+| `Contact` | Formulaire et canaux directs |
 
-## Learn More
+La navigation se fait par ancres (`#services`, `#about`, …) correspondant aux `id`
+des `<section>`. Les libellés sont dupliqués dans `Navbar.tsx` et `Footer.tsx`.
 
-To learn more about Next.js, take a look at the following resources:
+## Conventions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Les styles sont écrits en **objets `style` inline**, pas en classes Tailwind — Tailwind
+ne sert qu'aux quelques utilitaires responsives que l'inline ne peut pas exprimer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Chaque composant est un composant client avec une **garde d'hydratation** : un rendu
+statique est servi côté serveur, puis remplacé après montage. Les deux branches doivent
+rester cohérentes.
 
-## Deploy on Vercel
+Le contenu vit dans des tableaux en tête de fichier (`services`, `projects`,
+`skillCategories`, `certifications`) — éditer ces tableaux, pas le JSX.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Voir `CLAUDE.md` pour le détail.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Projet lié
+
+[**Anonymiseur RGPD**](https://huggingface.co/spaces/alfa2025/demo_anonyme) — démonstration
+de détection et masquage de données personnelles dans des documents français, exécutée
+entièrement dans le navigateur.
+
+## Contact
+
+📧 alfahashirama@gmail.com

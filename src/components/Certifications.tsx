@@ -307,7 +307,7 @@ export default function Certifications() {
 
   if (!mounted) {
     return (
-      <section id="certifications" style={{ padding: "96px 0", backgroundColor: "#070e1f" }}>
+      <section id="certifications" style={{ padding: "72px 0", backgroundColor: "#070e1f" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// certifications"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Mes <span style={{ color: "#22d3ee" }}>Certifications</span></h2>
@@ -321,7 +321,7 @@ export default function Certifications() {
       <section
         id="certifications"
         ref={ref}
-        style={{ padding: "96px 0", backgroundColor: "#070e1f" }}
+        style={{ padding: "72px 0", backgroundColor: "#070e1f" }}
       >
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
 

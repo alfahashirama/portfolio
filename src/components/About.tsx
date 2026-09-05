@@ -53,7 +53,7 @@ export default function About() {
   }, [mounted]);
 
   const sectionStyle: React.CSSProperties = {
-    padding: "96px 0",
+    padding: "72px 0",
     backgroundColor: "#060d18",
   };
 

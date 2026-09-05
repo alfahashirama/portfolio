@@ -81,7 +81,7 @@ export default function Contact() {
   ];
 
   const socials = [
-    { label: "GitHub", href: "https://github.com/", icon: "⌨️" },
+    { label: "GitHub", href: "https://github.com/alfahashirama", icon: "⌨️" },
     { label: "LinkedIn", href: "https://linkedin.com/", icon: "💼" },
     { label: "Credly", href: "https://www.credly.com/users/", icon: "🏆" },
   ];
@@ -110,7 +110,7 @@ export default function Contact() {
 
   if (!mounted) {
     return (
-      <section id="contact" style={{ padding: "96px 0", backgroundColor: "#060d18" }}>
+      <section id="contact" style={{ padding: "72px 0", backgroundColor: "#060d18" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// contact"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Parlons de votre <span style={{ color: "#22d3ee" }}>projet</span></h2>
@@ -123,7 +123,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      style={{ padding: "96px 0", backgroundColor: "#060d18" }}
+      style={{ padding: "72px 0", backgroundColor: "#060d18" }}
     >
       <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
 

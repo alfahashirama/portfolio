@@ -313,7 +313,7 @@ export default function Hero() {
           {/* Social links sous la photo */}
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
             {[
-              { href: "https://github.com/", text: "GitHub" },
+              { href: "https://github.com/alfahashirama", text: "GitHub" },
               { href: "https://linkedin.com/", text: "LinkedIn" },
               { href: "mailto:alfahashirama@gmail.com", text: "Email" },
             ].map((item, i) => (

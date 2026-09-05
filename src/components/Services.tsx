@@ -118,7 +118,7 @@ export default function Services() {
   }, [mounted]);
 
   const sectionStyle: React.CSSProperties = {
-    padding: "96px 0",
+    padding: "72px 0",
     backgroundColor: "#070e1f",
   };
 
@@ -172,9 +172,12 @@ export default function Services() {
         {/* Cartes prestations */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          // 4 prestations : en 3 colonnes la dernière carte reste seule avec deux
+          // emplacements vides. `min(100%, 460px)` force 2 colonnes sur desktop,
+          // soit une grille 2×2 équilibrée, et 1 colonne sur mobile.
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 460px), 1fr))",
           gap: "24px",
-          marginBottom: "72px",
+          marginBottom: "64px",
         }}>
           {services.map((s, i) => {
             const hovered = hoveredId === s.id;
