@@ -46,10 +46,7 @@ const projects = [
   {
     id: 7,
     demoUrl: null,
-    // À activer une fois `.env.prod` purgé de l'historique du dépôt : il contient
-    // aujourd'hui un mot de passe de base et un secret JWT en clair, dans un dépôt
-    // public. Envoyer un prospect dessus desservirait plus qu'un lien manquant.
-    repoUrl: null,
+    repoUrl: "https://github.com/alfahashirama/IncidentHub",
     confidential: false,
     title: "IncidentHub, gestion d'incidents IT",
     status: "Terminé",
@@ -89,7 +86,7 @@ const projects = [
   {
     id: 4,
     demoUrl: null,
-    repoUrl: null,
+    repoUrl: "https://github.com/alfahashirama/CI-CD_avec_k8s",
     confidential: false,
     title: "Pipeline CI/CD automatisé",
     status: "Terminé",
@@ -147,6 +144,8 @@ const projects = [
     border: "rgba(59,130,246,0.3)",
   },
 ];
+
+export const NB_PROJETS = projects.length;
 
 const filters = ["Tous", "Développement Web", "IA & NLP", "Agents IA", "DevOps", "Cybersécurité"];
 

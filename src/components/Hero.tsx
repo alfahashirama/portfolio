@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { NB_PROJETS } from "./Projects";
+import { NB_CERTIFICATIONS } from "./Certifications";
 
 const titles = [
   "Ingénieur informatique",
@@ -39,11 +41,16 @@ export default function Hero() {
     }
   }, [mounted, displayed, deleting, titleIndex]);
 
+  // Comptés à partir des données, pas écrits à la main : ces deux chiffres
+  // avaient déjà dérivé (« 5+ certifications » alors qu'il y en avait 7).
+  // « 2+ ans en IA » et « Français courant » ont été retirés : le premier mettait
+  // en avant la statistique la moins vendeuse, le second soulevait une question
+  // au lieu de la refermer sur un site entièrement rédigé en français.
   const stats = [
-    { value: "6+",  label: "Projets livrés" },
-    { value: "5+",  label: "Certifications" },
-    { value: "2+",  label: "Ans en IA" },
-    { value: "FR",  label: "Français courant" },
+    { value: String(NB_PROJETS),        label: "Projets livrés" },
+    { value: String(NB_CERTIFICATIONS), label: "Certifications" },
+    { value: "24 h",                    label: "Délai de réponse" },
+    { value: "100 %",                   label: "À distance" },
   ];
 
   const sectionStyle: React.CSSProperties = {

@@ -133,6 +133,8 @@ const certifications = [
   },
 ];
 
+export const NB_CERTIFICATIONS = certifications.length;
+
 const filters = ["Tous", "Data & IA", "Cloud & DevOps", "Cybersécurité"];
 
 // Compteurs dérivés du tableau ci-dessus : codés en dur, ils devenaient faux
