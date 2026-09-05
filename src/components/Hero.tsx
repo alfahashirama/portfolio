@@ -314,7 +314,6 @@ export default function Hero() {
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
             {[
               { href: "https://github.com/alfahashirama", text: "GitHub" },
-              { href: "https://linkedin.com/", text: "LinkedIn" },
               { href: "mailto:alfahashirama@gmail.com", text: "Email" },
             ].map((item, i) => (
               <a

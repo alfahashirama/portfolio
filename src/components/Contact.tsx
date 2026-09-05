@@ -82,8 +82,10 @@ export default function Contact() {
 
   const socials = [
     { label: "GitHub", href: "https://github.com/alfahashirama", icon: "⌨️" },
-    { label: "LinkedIn", href: "https://linkedin.com/", icon: "💼" },
-    { label: "Credly", href: "https://www.credly.com/users/", icon: "🏆" },
+    // LinkedIn retire : le lien pointait vers la page d'accueil du site,
+    // pas vers un profil. A restaurer des que l'URL reelle est connue.
+    // Credly retiré : le lien de profil n'existe pas. Les badges vérifiables
+    // restent accessibles depuis chaque certification.
   ];
 
   const inputStyle: React.CSSProperties = {

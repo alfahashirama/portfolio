@@ -135,6 +135,23 @@ const certifications = [
 
 const filters = ["Tous", "Data & IA", "Cloud & DevOps", "Cybersécurité"];
 
+// Compteurs dérivés du tableau ci-dessus : codés en dur, ils devenaient faux
+// dès qu'une certification était ajoutée.
+const organismes = [...new Set(certifications.map((c) => c.issuer))];
+const domaines = [...new Set(certifications.map((c) => c.category))];
+const badges = certifications.filter((c) => c.credlyUrl).length;
+
+const statistiques = [
+  { value: String(certifications.length), label: "Certifications", sub: "obtenues et en cours" },
+  { value: String(organismes.length),     label: "Organismes",     sub: "Cisco, Splunk, Udemy…" },
+  { value: String(domaines.length),       label: "Domaines",       sub: domaines.join(", ") },
+  {
+    value: String(badges),
+    label: badges > 1 ? "Badges Credly" : "Badge Credly",
+    sub: "vérifiables en ligne",
+  },
+];
+
 interface Cert {
   id: number;
   title: string;
@@ -472,12 +489,7 @@ export default function Certifications() {
             opacity: visible ? 1 : 0,
             transition: "all 0.7s ease 0.4s",
           }}>
-            {[
-              { value: "6", label: "Certifications", sub: "obtenues & en cours" },
-              { value: "3", label: "Plateformes", sub: "Cisco, Google, Splunk" },
-              { value: "2", label: "Domaines", sub: "IA & Cybersécurité" },
-              { value: "1", label: "Badge Credly", sub: "verifie en ligne" },
-            ].map((stat, i) => (
+            {statistiques.map((stat, i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: "2rem", fontWeight: 700, color: "#22d3ee", marginBottom: "4px" }}>
                   {stat.value}
