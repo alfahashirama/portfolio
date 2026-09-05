@@ -17,6 +17,7 @@ export default function Footer() {
     { href: "#skills",         label: "Compétences" },
     { href: "#projects",       label: "Réalisations" },
     { href: "#certifications", label: "Certifications" },
+    { href: "#faq",            label: "Questions fréquentes" },
     { href: "#contact",        label: "Devis gratuit" },
   ];
 

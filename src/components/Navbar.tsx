@@ -8,6 +8,7 @@ const navLinks = [
   { href: "#skills",         label: "Compétences" },
   { href: "#projects",       label: "Réalisations" },
   { href: "#certifications", label: "Certifications" },
+  { href: "#faq",            label: "Questions" },
 ];
 
 const styles: Record<string, React.CSSProperties> = {

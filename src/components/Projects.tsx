@@ -26,7 +26,7 @@ const projects = [
   {
     id: 2,
     demoUrl: null,
-    repoUrl: null,
+    repoUrl: "https://github.com/alfahashirama/multi-agent-research-assistant",
     confidential: false,
     title: "Système multi-agents IA",
     status: "Terminé",
@@ -42,6 +42,29 @@ const projects = [
     icon: "🕸️",
     gradient: "linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,94,166,0.1))",
     border: "rgba(139,92,246,0.3)",
+  },
+  {
+    id: 7,
+    demoUrl: null,
+    // À activer une fois `.env.prod` purgé de l'historique du dépôt : il contient
+    // aujourd'hui un mot de passe de base et un secret JWT en clair, dans un dépôt
+    // public. Envoyer un prospect dessus desservirait plus qu'un lien manquant.
+    repoUrl: null,
+    confidential: false,
+    title: "IncidentHub, gestion d'incidents IT",
+    status: "Terminé",
+    statusColor: "#4ade80",
+    category: "Développement Web",
+    description: "Plateforme de gestion d’incidents pour équipes IT : authentification par jeton, gestion des priorités et assignation des tâches. Déployée sur Kubernetes avec un pipeline d’intégration continue et des rapports d’analyse de sécurité automatisés.",
+    highlights: [
+      "Authentification JWT et gestion fine des rôles",
+      "Déploiement Kubernetes avec conteneurs séparés",
+      "Analyse de sécurité automatisée dans la chaîne CI",
+    ],
+    tags: ["React", "Node.js", "PostgreSQL", "Docker", "Kubernetes", "CI/CD"],
+    icon: "🚨",
+    gradient: "linear-gradient(135deg, rgba(244,63,94,0.12), rgba(59,94,166,0.1))",
+    border: "rgba(244,63,94,0.3)",
   },
   {
     id: 3,
