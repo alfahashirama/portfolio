@@ -93,10 +93,17 @@ const process = [
 ];
 
 const modalities = [
-  { icon: "🌍", label: "Télétravail",   value: "100 % à distance, clients francophones" },
-  { icon: "🕐", label: "Fuseau",         value: "UTC+3 - chevauche la journée française" },
-  { icon: "💬", label: "Langues",        value: "Français, anglais, malgache" },
-  { icon: "📄", label: "Tarification",   value: "Sur devis - forfait ou régie" },
+  { icon: "🌍", label: "Télétravail",  value: "100 % à distance, clients francophones" },
+  { icon: "🕐", label: "Fuseau",        value: "UTC+3, la journée française est couverte" },
+  { icon: "💬", label: "Langues",       value: "Français, anglais, malgache" },
+  { icon: "📄", label: "Tarification",  value: "Sur devis, au forfait ou en régie" },
+  // Ces trois lignes répondent aux questions que pose systématiquement un service
+  // comptable français face à un prestataire hors Union européenne. Sans réponse,
+  // le silence se lit comme un risque et le devis n'aboutit pas.
+  { icon: "💶", label: "Facturation",   value: "En euros, virement bancaire international" },
+  { icon: "🧾", label: "TVA",           value: "Facture hors taxes, autoliquidation par le client" },
+  { icon: "📆", label: "Règlement",     value: "30 jours date de facture, acompte au forfait" },
+  { icon: "🔐", label: "Confidentialité", value: "Accord de confidentialité signé sur demande" },
 ];
 
 export default function Services() {

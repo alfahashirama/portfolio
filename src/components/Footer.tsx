@@ -140,9 +140,23 @@ export default function Footer() {
             <p style={{ fontSize: "13px", color: "#334155" }}>
               © {year} RAMANATENANIAVO Nasandratra Alfa. Tous droits réservés.
             </p>
-            <p style={{ fontSize: "12px", color: "#1e3a70", fontFamily: "monospace" }}>
-              Built with Next.js + TypeScript + Tailwind CSS
-            </p>
+
+            <div style={{ display: "flex", gap: "18px", flexWrap: "wrap", alignItems: "center" }}>
+              {[
+                { href: "/mentions-legales", label: "Mentions légales" },
+                { href: "/confidentialite",  label: "Données personnelles" },
+              ].map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  style={{ fontSize: "13px", color: "#64748b", textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#22d3ee"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
