@@ -155,7 +155,7 @@ export default function Projects() {
       <section id="projects" style={{ padding: "72px 0", backgroundColor: "#060d18" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// projets"}</p>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Projets <span style={{ color: "#22d3ee" }}>Significatifs</span></h2>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Réalisations <span style={{ color: "#22d3ee" }}>livrées</span></h2>
         </div>
       </section>
     );
@@ -174,7 +174,7 @@ export default function Projects() {
         }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>{"// projets"}</p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
-            Projets <span style={{ color: "#22d3ee" }}>Significatifs</span>
+            Réalisations <span style={{ color: "#22d3ee" }}>livrées</span>
           </h2>
           <div style={{ width: "64px", height: "4px", backgroundColor: "#06b6d4", borderRadius: "2px" }} />
         </div>

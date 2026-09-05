@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "#services",       labelFr: "Prestations",    label: "Services" },
-  { href: "#about",          labelFr: "À propos",       label: "About" },
-  { href: "#skills",         labelFr: "Compétences",    label: "Skills" },
-  { href: "#projects",       labelFr: "Réalisations",   label: "Work" },
-  { href: "#certifications", labelFr: "Certifications", label: "Certifications" },
+  { href: "#services",       label: "Prestations" },
+  { href: "#about",          label: "À propos" },
+  { href: "#skills",         label: "Compétences" },
+  { href: "#projects",       label: "Réalisations" },
+  { href: "#certifications", label: "Certifications" },
 ];
 
 const styles: Record<string, React.CSSProperties> = {
@@ -64,17 +64,6 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     gap: "16px",
   },
-  langBtn: {
-    fontSize: "12px",
-    fontFamily: "var(--font-mono), monospace",
-    padding: "4px 12px",
-    borderRadius: "9999px",
-    border: "1px solid #06b6d4",
-    color: "#22d3ee",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    transition: "all 0.2s",
-  },
   ctaBtn: {
     fontSize: "13px",
     fontWeight: 700,
@@ -91,7 +80,6 @@ const styles: Record<string, React.CSSProperties> = {
 export default function Navbar() {
   const [scrolled,  setScrolled]  = useState(false);
   const [menuOpen,  setMenuOpen]  = useState(false);
-  const [lang,      setLang]      = useState("fr");
   const [mounted,   setMounted]   = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
@@ -136,7 +124,7 @@ export default function Navbar() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#22d3ee"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#94a3b8"; }}
             >
-              {lang === "fr" ? link.labelFr : link.label}
+              {link.label}
             </a>
           ))}
         </div>
@@ -150,25 +138,13 @@ export default function Navbar() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#22d3ee"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#06b6d4"; }}
           >
-            {lang === "fr" ? "Devis gratuit" : "Free quote"}
+            Devis gratuit
           </a>
 
-          <button
-            style={styles.langBtn}
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLButtonElement;
-              el.style.backgroundColor = "#06b6d4";
-              el.style.color = "#060d18";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLButtonElement;
-              el.style.backgroundColor = "transparent";
-              el.style.color = "#22d3ee";
-            }}
-          >
-            {lang === "fr" ? "EN" : "FR"}
-          </button>
+          {/* Le sélecteur EN/FR a été retiré : il ne traduisait que les libellés
+              du menu, tout le contenu restait en français. Un bouton qui ment sur
+              ce qu'il fait coûte plus cher que son absence. À remettre le jour où
+              le contenu sera réellement traduit. */}
 
           {/* Hamburger */}
           <button
@@ -217,7 +193,7 @@ export default function Navbar() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#22d3ee"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#94a3b8"; }}
             >
-              {lang === "fr" ? link.labelFr : link.label}
+              {link.label}
             </a>
           ))}
           <a
@@ -225,7 +201,7 @@ export default function Navbar() {
             style={{ ...styles.ctaBtn, textAlign: "center", marginTop: "4px" }}
             onClick={() => setMenuOpen(false)}
           >
-            {lang === "fr" ? "Devis gratuit" : "Free quote"}
+            Devis gratuit
           </a>
         </div>
       )}
