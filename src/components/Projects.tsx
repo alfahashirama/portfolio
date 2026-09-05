@@ -12,7 +12,7 @@ const projects = [
     status: "Démo en ligne",
     statusColor: "#4ade80",
     category: "IA & NLP",
-    description: "Détecte et masque les données personnelles d’un document français : noms, lieux, dates, e-mails, téléphones, IBAN et n° de sécurité sociale. Le modèle tourne dans le navigateur — aucun document n’est envoyé sur un serveur.",
+    description: "Détecte et masque les données personnelles d’un document français : noms, lieux, dates, e-mails, téléphones, IBAN et n° de sécurité sociale. Le modèle tourne dans le navigateur - aucun document n’est envoyé sur un serveur.",
     highlights: [
       "CamemBERT exécuté côté client via transformers.js",
       "IBAN et n° de sécu vérifiés par leur clé de contrôle",

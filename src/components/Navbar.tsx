@@ -44,7 +44,11 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: "var(--font-mono), monospace",
   },
   desktopLinks: {
-    display: "flex",
+    // Surtout PAS de `display` ici : un style inline l'emporte sur une classe,
+    // donc `display: flex` annulait le `hidden` de « hidden md:flex ». Résultat,
+    // sur mobile le menu desktop débordait de l'écran et repoussait le bouton
+    // hamburger hors du cadre : plus aucune navigation possible sur téléphone.
+    // C'est `md:flex` qui fournit le display à partir de 768 px.
     alignItems: "center",
     gap: "32px",
   },
