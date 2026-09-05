@@ -27,7 +27,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alfa Nasandratra — Ingénieur Informatique Freelance | Full-Stack & IA",
+    default: "Alfa Nasandratra - Ingénieur Informatique Freelance | Full-Stack & IA",
     template: "%s | Alfa Nasandratra",
   },
   description,
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: siteUrl,
-    siteName: "Alfa Nasandratra — Ingénieur Informatique Freelance",
-    title: "Ingénieur Informatique Freelance — Full-Stack & IA",
+    siteName: "Alfa Nasandratra - Ingénieur Informatique Freelance",
+    title: "Ingénieur Informatique Freelance - Full-Stack & IA",
     description,
     images: [
       {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ingénieur Informatique Freelance — Full-Stack & IA",
+    title: "Ingénieur Informatique Freelance - Full-Stack & IA",
     description,
     images: ["/photo-alfa.jpg"],
   },
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Alfa Nasandratra — Ingénieur Informatique Freelance",
+  name: "Alfa Nasandratra - Ingénieur Informatique Freelance",
   description,
   url: siteUrl,
   image: `${siteUrl}/photo-alfa.jpg`,
@@ -107,7 +107,7 @@ const jsonLd = {
   founder: {
     "@type": "Person",
     name: "RAMANATENANIAVO Nasandratra Alfa",
-    jobTitle: "Ingénieur informatique — Développement full-stack & IA",
+    jobTitle: "Ingénieur informatique - Développement full-stack & IA",
   },
   knowsAbout: [
     "Développement web full-stack",

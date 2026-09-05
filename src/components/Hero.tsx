@@ -6,7 +6,7 @@ import Image from "next/image";
 const titles = [
   "Ingénieur informatique",
   "Développeur Full-Stack",
-  "Ingénieur IA — ML, DL, NLP",
+  "Ingénieur IA - ML, DL, NLP",
   "Freelance en télétravail",
 ];
 
@@ -90,7 +90,7 @@ export default function Hero() {
         backgroundColor: "rgba(59,94,166,0.1)", filter: "blur(60px)",
       }} />
 
-      {/* Content — two columns */}
+      {/* Content - two columns */}
       <div style={{
         position: "relative", zIndex: 1,
         maxWidth: "1100px", margin: "0 auto",
@@ -102,7 +102,7 @@ export default function Hero() {
         flexWrap: "wrap",
       }}>
 
-        {/* LEFT — Text */}
+        {/* LEFT - Text */}
         <div style={{ flex: "1", minWidth: "280px", maxWidth: "580px" }}>
 
           {/* Badge */}
@@ -161,7 +161,7 @@ export default function Hero() {
             <span style={{ color: "#ffffff", fontWeight: 600 }}>applications web sur mesure</span>{" "}
             et des solutions d’
             <span style={{ color: "#22d3ee", fontWeight: 500 }}>intelligence artificielle</span>{" "}
-            — chatbots, agents IA et automatisation — de la maquette à la mise en production.
+            - chatbots, agents IA et automatisation - de la maquette à la mise en production.
             Je travaille <span style={{ color: "#ffffff", fontWeight: 600 }}>à distance</span>{" "}
             avec des clients francophones.
           </p>
@@ -242,7 +242,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT — Photo */}
+        {/* RIGHT - Photo */}
         <div style={{
           display: "flex",
           flexDirection: "column",

@@ -51,14 +51,14 @@ export default function Contact() {
       return;
     }
 
-    const subject = formData.subject.trim() || `Demande de projet — ${formData.name}`;
+    const subject = formData.subject.trim() || `Demande de projet - ${formData.name}`;
     const body = [
       `Nom : ${formData.name}`,
       `E-mail : ${formData.email}`,
       "",
       formData.message,
       "",
-      "— Envoyé depuis le portfolio",
+      "- Envoyé depuis le portfolio",
     ].join("\n");
 
     window.location.href =
@@ -67,7 +67,7 @@ export default function Contact() {
     setStatus({
       type: "success",
       message:
-        "Votre logiciel de messagerie vient de s’ouvrir avec le message pré-rempli — " +
+        "Votre logiciel de messagerie vient de s’ouvrir avec le message pré-rempli - " +
         "il ne reste qu’à l’envoyer. S’il ne s’ouvre pas, écrivez-moi directement à " +
         EMAIL + ".",
     });
@@ -76,7 +76,7 @@ export default function Contact() {
   const contactInfo = [
     { icon: "📧", label: "E-mail", value: EMAIL, href: `mailto:${EMAIL}` },
     { icon: "📱", label: "Téléphone / WhatsApp", value: "+261 34 78 284 05", href: `https://wa.me/${PHONE_INTL}` },
-    { icon: "🌍", label: "Localisation", value: "Fianarantsoa, Madagascar — 100 % à distance" , href: null },
+    { icon: "🌍", label: "Localisation", value: "Fianarantsoa, Madagascar - 100 % à distance" , href: null },
     { icon: "🕐", label: "Disponibilité", value: "Réponse sous 24 h ouvrées", href: null },
   ];
 

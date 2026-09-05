@@ -7,9 +7,9 @@ const infos = [
   { label: "Statut",       value: "Ingénieur informatique · freelance" },
   { label: "Email",        value: "alfahashirama@gmail.com" },
   { label: "Téléphone",    value: "+261 34 78 284 05" },
-  { label: "Basé à",       value: "Fianarantsoa, Madagascar — 100 % à distance" },
+  { label: "Basé à",       value: "Fianarantsoa, Madagascar - 100 % à distance" },
   { label: "Spécialités",  value: "Full-stack · IA (ML, DL, NLP) · MLOps" },
-  { label: "Disponible",   value: "Immédiatement — missions courtes ou longues" },
+  { label: "Disponible",   value: "Immédiatement - missions courtes ou longues" },
 ];
 
 const highlights = [
@@ -108,7 +108,7 @@ export default function About() {
               <strong style={{ color: "#ffffff" }}> intelligence artificielle</strong> (ML, DL, NLP).
               En freelance, j’accompagne des entreprises et des indépendants
               francophones qui ont besoin d’une application sur mesure ou qui veulent intégrer
-              concrètement l’IA dans leurs outils — sans jargon et sans usine à gaz.
+              concrètement l’IA dans leurs outils - sans jargon et sans usine à gaz.
             </p>
             <p style={{ color: "#cbd5e1", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
               J’ai développé et mis en production, <strong style={{ color: "#ffffff" }}>en autonomie complète</strong>,
@@ -121,7 +121,7 @@ export default function About() {
               <span style={{ color: "#22d3ee" }}>machine learning, le deep learning et le NLP</span> :
               chatbots entraînés sur des documents métier, pipelines RAG, agents autonomes et
               automatisation de tâches répétitives. Je choisis toujours la solution la plus simple
-              qui résout le problème — un modèle sur mesure quand il le faut, une règle bien écrite
+              qui résout le problème - un modèle sur mesure quand il le faut, une règle bien écrite
               quand cela suffit.
             </p>
 
@@ -190,7 +190,7 @@ export default function About() {
               <p style={{ color: "#94a3b8", fontSize: "13px", marginTop: "4px" }}>État-Major de l’Armée de l’Air, Antananarivo</p>
               <p style={{ color: "#94a3b8", fontSize: "13px", marginTop: "8px", lineHeight: 1.6 }}>
                 Application web de gestion logistique livrée de la maquette à la mise en production,
-                en autonomie complète, dans un environnement sécurisé — formation des utilisateurs incluse.
+                en autonomie complète, dans un environnement sécurisé - formation des utilisateurs incluse.
               </p>
             </div>
           </div>

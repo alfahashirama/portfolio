@@ -12,7 +12,7 @@ const projects = [
     status: "En cours",
     statusColor: "#22d3ee",
     category: "IA & NLP",
-    description: "Assistant IA qui répond à des questions à partir d’un corpus de documents. Fine-tuning d’un modèle Transformers sur un corpus malgache et français — la même approche s’applique à une base documentaire d’entreprise.",
+    description: "Assistant IA qui répond à des questions à partir d’un corpus de documents. Fine-tuning d’un modèle Transformers sur un corpus malgache et français - la même approche s’applique à une base documentaire d’entreprise.",
     highlights: [
       "Fine-tuning BERT sur corpus malgache et français",
       "Gestion de données peu documentées",
@@ -318,7 +318,7 @@ export default function Projects() {
                       fontSize: "11.5px", color: "#94a3b8",
                       fontFamily: "var(--font-mono), monospace",
                     }}>
-                      🔒 Projet confidentiel — démonstration sur demande
+                      🔒 Projet confidentiel - démonstration sur demande
                     </span>
                   )}
                 </div>

@@ -94,9 +94,9 @@ const process = [
 
 const modalities = [
   { icon: "🌍", label: "Télétravail",   value: "100 % à distance, clients francophones" },
-  { icon: "🕐", label: "Fuseau",         value: "UTC+3 — chevauche la journée française" },
+  { icon: "🕐", label: "Fuseau",         value: "UTC+3 - chevauche la journée française" },
   { icon: "💬", label: "Langues",        value: "Français, anglais, malgache" },
-  { icon: "📄", label: "Tarification",   value: "Sur devis — forfait ou régie" },
+  { icon: "📄", label: "Tarification",   value: "Sur devis - forfait ou régie" },
 ];
 
 export default function Services() {

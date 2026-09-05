@@ -57,7 +57,7 @@ export default function Footer() {
               {"<"}Alfa<span style={{ color: "#22d3ee" }}>/</span>{">"}
             </div>
             <p style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.7, maxWidth: "240px" }}>
-              Ingénieur informatique freelance — full-stack et IA.
+              Ingénieur informatique freelance - full-stack et IA.
               J’accompagne des clients francophones, 100 % à distance.
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function Footer() {
               {[
                 { label: "alfahashirama@gmail.com", href: "mailto:alfahashirama@gmail.com" },
                 { label: "+261 34 78 284 05", href: "https://wa.me/261347828405" },
-                { label: "Fianarantsoa, Madagascar — 100 % à distance", href: null },
+                { label: "Fianarantsoa, Madagascar - 100 % à distance", href: null },
               ].map((item, i) => (
                 item.href ? (
                   <a
