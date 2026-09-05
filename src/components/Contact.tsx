@@ -14,6 +14,9 @@ interface FormStatus {
   message: string;
 }
 
+const EMAIL = "alfahashirama@gmail.com";
+const PHONE_INTL = "261347828405";
+
 export default function Contact() {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -39,32 +42,48 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  // Le formulaire n'a pas de backend : il compose un e-mail pré-rempli et ouvre
+  // le client mail du visiteur. Aucun message ne peut donc être perdu en silence.
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus({ type: "error", message: "Veuillez remplir tous les champs obligatoires." });
+      setStatus({ type: "error", message: "Merci de renseigner au minimum votre nom, votre e-mail et votre message." });
       return;
     }
-    setStatus({ type: "loading", message: "Envoi en cours..." });
-    await new Promise((r) => setTimeout(r, 1500));
+
+    const subject = formData.subject.trim() || `Demande de projet — ${formData.name}`;
+    const body = [
+      `Nom : ${formData.name}`,
+      `E-mail : ${formData.email}`,
+      "",
+      formData.message,
+      "",
+      "— Envoyé depuis le portfolio",
+    ].join("\n");
+
+    window.location.href =
+      `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     setStatus({
       type: "success",
-      message: "Message envoye ! Je vous repondrai dans les plus brefs delais.",
+      message:
+        "Votre logiciel de messagerie vient de s’ouvrir avec le message pré-rempli — " +
+        "il ne reste qu’à l’envoyer. S’il ne s’ouvre pas, écrivez-moi directement à " +
+        EMAIL + ".",
     });
-    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   const contactInfo = [
-    { icon: "📧", label: "Email", value: "alfahashirama@gmail.com", href: "mailto:alfahashirama@gmail.com" },
-    { icon: "📱", label: "Telephone", value: "034 78 284 05", href: "tel:+261347828405" },
-    { icon: "📍", label: "Localisation", value: "Fianarantsoa, Madagascar", href: null },
-    { icon: "🎓", label: "Formation", value: "ENI Fianarantsoa - Master 2", href: null },
+    { icon: "📧", label: "E-mail", value: EMAIL, href: `mailto:${EMAIL}` },
+    { icon: "📱", label: "Téléphone / WhatsApp", value: "+261 34 78 284 05", href: `https://wa.me/${PHONE_INTL}` },
+    { icon: "🌍", label: "Localisation", value: "Fianarantsoa, Madagascar — 100 % à distance" , href: null },
+    { icon: "🕐", label: "Disponibilité", value: "Réponse sous 24 h ouvrées", href: null },
   ];
 
   const socials = [
     { label: "GitHub", href: "https://github.com/", icon: "⌨️" },
     { label: "LinkedIn", href: "https://linkedin.com/", icon: "💼" },
-    { label: "Credly", href: "https://www.credly.com/badges/1c060142-75ca-4c9c-80a5-27445096a74a", icon: "🏆" },
+    { label: "Credly", href: "https://www.credly.com/users/", icon: "🏆" },
   ];
 
   const inputStyle: React.CSSProperties = {
@@ -93,8 +112,8 @@ export default function Contact() {
     return (
       <section id="contact" style={{ padding: "96px 0", backgroundColor: "#060d18" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
-          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>// contact</p>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Me <span style={{ color: "#22d3ee" }}>Contacter</span></h2>
+          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// contact"}</p>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Parlons de votre <span style={{ color: "#22d3ee" }}>projet</span></h2>
         </div>
       </section>
     );
@@ -116,16 +135,59 @@ export default function Contact() {
           transition: "all 0.7s ease",
         }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-            // contact
+            {"// contact"}
           </p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
-            Me <span style={{ color: "#22d3ee" }}>Contacter</span>
+            Parlons de votre <span style={{ color: "#22d3ee" }}>projet</span>
           </h2>
           <div style={{ width: "64px", height: "4px", backgroundColor: "#06b6d4", borderRadius: "2px", margin: "0 auto 16px" }} />
-          <p style={{ fontSize: "15px", color: "#94a3b8", maxWidth: "500px", margin: "0 auto", lineHeight: 1.7 }}>
-            Disponible pour un emploi junior en IA, Data ou Cybersecurite.
-            N hesitez pas a me contacter !
+          <p style={{ fontSize: "15px", color: "#94a3b8", maxWidth: "560px", margin: "0 auto 24px", lineHeight: 1.7 }}>
+            Décrivez-moi votre besoin en quelques lignes : je vous réponds sous 24 h ouvrées
+            avec un premier avis honnête et, si le projet correspond, un devis détaillé.
+            Le premier échange est gratuit et sans engagement.
           </p>
+
+          {/* Canaux directs */}
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href={`mailto:${EMAIL}?subject=${encodeURIComponent("Demande de projet")}`}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                backgroundColor: "#06b6d4", color: "#060d18",
+                fontWeight: 700, fontSize: "14px",
+                padding: "12px 22px", borderRadius: "8px", textDecoration: "none",
+                transition: "background-color 0.2s",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#22d3ee"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#06b6d4"; }}
+            >
+              📧 Écrire un e-mail
+            </a>
+            <a
+              href={`https://wa.me/${PHONE_INTL}?text=${encodeURIComponent("Bonjour Alfa, je vous contacte au sujet d’un projet.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                border: "1px solid #4ade80", color: "#4ade80",
+                fontWeight: 700, fontSize: "14px",
+                padding: "12px 22px", borderRadius: "8px", textDecoration: "none",
+                backgroundColor: "transparent", transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.backgroundColor = "#4ade80";
+                el.style.color = "#060d18";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.backgroundColor = "transparent";
+                el.style.color = "#4ade80";
+              }}
+            >
+              💬 WhatsApp
+            </a>
+          </div>
         </div>
 
         {/* Main grid */}
@@ -142,7 +204,7 @@ export default function Contact() {
             transition: "all 0.7s ease 0.2s",
           }}>
             <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#ffffff", marginBottom: "24px" }}>
-              Informations de contact
+              Me joindre directement
             </h3>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "36px" }}>
@@ -226,7 +288,7 @@ export default function Contact() {
               padding: "32px",
             }}>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#ffffff", marginBottom: "24px" }}>
-                Envoyer un message
+                Décrire mon projet
               </h3>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
@@ -240,14 +302,14 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Votre nom"
+                      placeholder="Votre nom ou votre société"
                       style={inputStyle}
                       onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#06b6d4"; }}
                       onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#1e3a70"; }}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Email <span style={{ color: "#22d3ee" }}>*</span></label>
+                    <label style={labelStyle}>E-mail <span style={{ color: "#22d3ee" }}>*</span></label>
                     <input
                       type="email"
                       name="email"
@@ -263,13 +325,13 @@ export default function Contact() {
 
                 {/* Subject */}
                 <div>
-                  <label style={labelStyle}>Sujet</label>
+                  <label style={labelStyle}>Type de projet</label>
                   <input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Objet de votre message"
+                    placeholder="Ex. : application web, chatbot IA, automatisation…"
                     style={inputStyle}
                     onFocus={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#06b6d4"; }}
                     onBlur={(e) => { (e.currentTarget as HTMLInputElement).style.borderColor = "#1e3a70"; }}
@@ -283,7 +345,7 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Votre message..."
+                    placeholder="Votre besoin, le contexte, votre échéance et votre budget indicatif si vous en avez un."
                     rows={5}
                     style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
                     onFocus={(e) => { (e.currentTarget as HTMLTextAreaElement).style.borderColor = "#06b6d4"; }}
@@ -332,7 +394,7 @@ export default function Contact() {
                     }
                   }}
                 >
-                  {status.type === "loading" ? "Envoi en cours..." : "Envoyer le message"}
+                  {status.type === "loading" ? "Ouverture…" : "Envoyer ma demande"}
                 </button>
               </div>
             </div>

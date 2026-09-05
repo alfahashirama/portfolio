@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "#about",          labelFr: "A propos",       label: "About" },
-  { href: "#skills",         labelFr: "Competences",    label: "Skills" },
-  { href: "#projects",       labelFr: "Projets",        label: "Projects" },
+  { href: "#services",       labelFr: "Prestations",    label: "Services" },
+  { href: "#about",          labelFr: "À propos",       label: "About" },
+  { href: "#skills",         labelFr: "Compétences",    label: "Skills" },
+  { href: "#projects",       labelFr: "Réalisations",   label: "Work" },
   { href: "#certifications", labelFr: "Certifications", label: "Certifications" },
-  { href: "#contact",        labelFr: "Contact",        label: "Contact" },
 ];
 
 const styles: Record<string, React.CSSProperties> = {
@@ -71,6 +71,17 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: "pointer",
     transition: "all 0.2s",
   },
+  ctaBtn: {
+    fontSize: "13px",
+    fontWeight: 700,
+    padding: "9px 18px",
+    borderRadius: "8px",
+    backgroundColor: "#06b6d4",
+    color: "#060d18",
+    textDecoration: "none",
+    transition: "background-color 0.2s",
+    whiteSpace: "nowrap",
+  },
 };
 
 export default function Navbar() {
@@ -128,6 +139,16 @@ export default function Navbar() {
 
         {/* Right */}
         <div style={styles.right}>
+          <a
+            href="#contact"
+            style={styles.ctaBtn}
+            className="hidden sm:inline-block"
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#22d3ee"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#06b6d4"; }}
+          >
+            {lang === "fr" ? "Devis gratuit" : "Free quote"}
+          </a>
+
           <button
             style={styles.langBtn}
             onClick={() => setLang(lang === "fr" ? "en" : "fr")}
@@ -195,6 +216,13 @@ export default function Navbar() {
               {lang === "fr" ? link.labelFr : link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            style={{ ...styles.ctaBtn, textAlign: "center", marginTop: "4px" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            {lang === "fr" ? "Devis gratuit" : "Free quote"}
+          </a>
         </div>
       )}
     </nav>

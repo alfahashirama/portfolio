@@ -4,22 +4,41 @@ import { useState, useEffect, useRef } from "react";
 
 const certifications = [
   {
+    id: 7,
+    title: "Data Science Essentials with Python",
+    issuer: "Cisco Networking Academy",
+    date: "Juillet 2026",
+    score: "Cert ID : efe6c202",
+    category: "Data & IA",
+    icon: "📈",
+    color: "#38bdf8",
+    credlyUrl: "https://www.credly.com/badges/13d52038-7e74-4f1f-a486-1e65497f2919",
+    pdfFile: "/certifications/data.pdf",
+    modules: [
+      "Manipulation de données avec Pandas et NumPy",
+      "Nettoyage et préparation de jeux de données",
+      "Analyse exploratoire et visualisation",
+      "Statistiques appliquées à la data science",
+      "Modèles prédictifs avec scikit-learn",
+    ],
+  },
+  {
     id: 1,
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
     date: "Janvier 2026",
-    score: "70/100 - Intermediate",
-    category: "Cybersecurite",
+    score: "70/100 — Niveau intermédiaire",
+    category: "Cybersécurité",
     icon: "🛡️",
     color: "#06b6d4",
     credlyUrl: "https://www.credly.com/badges/1c060142-75ca-4c9c-80a5-27445096a74a",
     pdfFile: "/certifications/cisco-cybersecurity.pdf",
     modules: [
-      "Introduction a la cybersecurite",
+      "Introduction à la cybersécurité",
       "Attaques, Concepts et Techniques",
-      "Protection des donnees et Confidentialite",
-      "Proteger l entreprise",
-      "Carriere dans la cybersecurite",
+      "Protection des données et confidentialité",
+      "Protéger l’entreprise",
+      "Carrière dans la cybersécurité",
     ],
   },
   {
@@ -27,8 +46,8 @@ const certifications = [
     title: "Introduction to Google Cloud Platform",
     issuer: "Simple Learn",
     date: "Novembre 2025",
-    score: "Code: 9445930",
-    category: "Cloud",
+    score: "Code : 9445930",
+    category: "Cloud & DevOps",
     icon: "☁️",
     color: "#4285f4",
     credlyUrl: null,
@@ -37,7 +56,7 @@ const certifications = [
       "Fondamentaux GCP",
       "Services cloud essentiels",
       "Infrastructure Google",
-      "Securite et conformite cloud",
+      "Sécurité et conformité cloud",
     ],
   },
   {
@@ -45,8 +64,8 @@ const certifications = [
     title: "Intro to Splunk (eLearning)",
     issuer: "Splunk",
     date: "Janvier 2026",
-    score: "1 Credit Hour",
-    category: "Cybersecurite",
+    score: "1 heure de formation",
+    category: "Cybersécurité",
     icon: "📊",
     color: "#ff6900",
     credlyUrl: null,
@@ -54,8 +73,8 @@ const certifications = [
     modules: [
       "Navigation dans Splunk",
       "Recherche et reporting",
-      "Correlation de logs",
-      "Analyse d evenements de securite",
+      "Corrélation de logs",
+      "Analyse d’événements de sécurité",
     ],
   },
   {
@@ -63,35 +82,35 @@ const certifications = [
     title: "Artificial Neural Networks - Theory & Applications",
     issuer: "Udemy",
     date: "Septembre 2025",
-    score: "1 heure - Reference: 0004",
-    category: "Intelligence Artificielle",
+    score: "1 heure — Référence : 0004",
+    category: "Data & IA",
     icon: "🧠",
     color: "#a855f7",
     credlyUrl: null,
     pdfFile: "/certifications/udemy-ann.pdf",
     modules: [
-      "Fondements des reseaux de neurones",
+      "Fondements des réseaux de neurones",
       "Architectures CNN et RNN",
       "Applications pratiques",
-      "Optimisation et regularisation",
+      "Optimisation et régularisation",
     ],
   },
   {
     id: 5,
-    title: "Analyste Junior en Cybersecurite",
+    title: "Analyste Junior en Cybersécurité",
     issuer: "Cisco Networking Academy",
     date: "En cours",
     score: "En progression",
-    category: "Cybersecurite",
+    category: "Cybersécurité",
     icon: "🔐",
     color: "#22d3ee",
     credlyUrl: null,
     pdfFile: null,
     modules: [
       "Analyse des menaces",
-      "Reponse aux incidents",
-      "Forensique numerique",
-      "Gestion des vulnerabilites",
+      "Réponse aux incidents",
+      "Forensique numérique",
+      "Gestion des vulnérabilités",
     ],
   },
   {
@@ -99,22 +118,22 @@ const certifications = [
     title: "ML, Deep Learning & Generative AI",
     issuer: "Arato Fianarantsoa",
     date: "En cours",
-    score: "Formation structuree",
-    category: "Intelligence Artificielle",
+    score: "Formation structurée",
+    category: "Data & IA",
     icon: "🤖",
     color: "#4ade80",
     credlyUrl: null,
     pdfFile: null,
     modules: [
-      "Machine Learning avance",
+      "Machine Learning avancé",
       "Deep Learning et CNN",
       "Generative AI et LLM",
-      "MLOps et deploiement",
+      "MLOps et déploiement",
     ],
   },
 ];
 
-const filters = ["Tous", "Cybersecurite", "Intelligence Artificielle", "Cloud"];
+const filters = ["Tous", "Data & IA", "Cloud & DevOps", "Cybersécurité"];
 
 interface Cert {
   id: number;
@@ -238,7 +257,7 @@ function Modal({ cert, onClose }: { cert: Cert; onClose: () => void }) {
                 Formation en cours
               </h4>
               <p style={{ fontSize: "14px", color: "#94a3b8", maxWidth: "400px", lineHeight: 1.6, marginBottom: "32px" }}>
-                Cette certification est actuellement en progression. Le certificat sera disponible a l obtention.
+                Cette certification est actuellement en progression. Le certificat sera ajouté ici dès l’obtention.
               </p>
               <div style={{
                 padding: "20px 24px", borderRadius: "12px",
@@ -290,7 +309,7 @@ export default function Certifications() {
     return (
       <section id="certifications" style={{ padding: "96px 0", backgroundColor: "#070e1f" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
-          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>// certifications</p>
+          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// certifications"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Mes <span style={{ color: "#22d3ee" }}>Certifications</span></h2>
         </div>
       </section>
@@ -314,7 +333,7 @@ export default function Certifications() {
             transition: "all 0.7s ease",
           }}>
             <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-              // certifications
+              {"// certifications"}
             </p>
             <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
               Mes <span style={{ color: "#22d3ee" }}>Certifications</span>
@@ -456,7 +475,7 @@ export default function Certifications() {
             {[
               { value: "6", label: "Certifications", sub: "obtenues & en cours" },
               { value: "3", label: "Plateformes", sub: "Cisco, Google, Splunk" },
-              { value: "2", label: "Domaines", sub: "IA & Cybersecurite" },
+              { value: "2", label: "Domaines", sub: "IA & Cybersécurité" },
               { value: "1", label: "Badge Credly", sub: "verifie en ligne" },
             ].map((stat, i) => (
               <div key={i} style={{ textAlign: "center" }}>

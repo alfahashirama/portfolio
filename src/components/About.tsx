@@ -4,17 +4,35 @@ import { useState, useEffect, useRef } from "react";
 
 const infos = [
   { label: "Nom",          value: "RAMANATENANIAVO Nasandratra Alfa" },
+  { label: "Statut",       value: "Ingénieur informatique · freelance" },
   { label: "Email",        value: "alfahashirama@gmail.com" },
-  { label: "Tel",          value: "034 78 284 05" },
-  { label: "Localisation", value: "Fianarantsoa, Madagascar" },
-  { label: "Formation",    value: "Master 2 Informatique, ENI Fianarantsoa" },
-  { label: "Disponible",   value: "Immediatement, duree flexible" },
+  { label: "Téléphone",    value: "+261 34 78 284 05" },
+  { label: "Basé à",       value: "Fianarantsoa, Madagascar — 100 % à distance" },
+  { label: "Spécialités",  value: "Full-stack · IA (ML, DL, NLP) · MLOps" },
+  { label: "Disponible",   value: "Immédiatement — missions courtes ou longues" },
 ];
 
 const highlights = [
-  { icon: "🤖", title: "Intelligence Artificielle", desc: "2 ans en ML, Deep Learning, NLP et Generative AI avec PyTorch et HuggingFace." },
-  { icon: "🔐", title: "Cybersecurite", desc: "Analyse SOC, SIEM avec Splunk, detection d intrusions et rapports d incidents." },
-  { icon: "⚙️", title: "Automatisation", desc: "Pipelines CI/CD avec GitHub Actions, workflows n8n et deploiement MLOps." },
+  {
+    icon: "💻",
+    title: "Développement full-stack",
+    desc: "Applications web complètes en React, Next.js, Spring Boot et Python, livrées jusqu’à la mise en production.",
+  },
+  {
+    icon: "🤖",
+    title: "Intelligence artificielle",
+    desc: "Deux ans en machine learning, NLP et IA générative : chatbots, RAG et agents autonomes avec PyTorch et HuggingFace.",
+  },
+  {
+    icon: "⚙️",
+    title: "Automatisation & déploiement",
+    desc: "Pipelines CI/CD avec GitHub Actions, workflows n8n, conteneurisation Docker et déploiement cloud.",
+  },
+  {
+    icon: "🔐",
+    title: "Sécurité applicative",
+    desc: "Un atout en plus : analyse SIEM, gestion des accès et revue de sécurité pour livrer des applications durcies.",
+  },
 ];
 
 export default function About() {
@@ -43,7 +61,7 @@ export default function About() {
     return (
       <section id="about" style={sectionStyle}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
-          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: "8px" }}>// a propos</p>
+          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: "8px" }}>{"// à propos"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Qui suis-<span style={{ color: "#22d3ee" }}>je</span> ?</h2>
         </div>
       </section>
@@ -62,7 +80,7 @@ export default function About() {
           transition: "all 0.7s ease",
         }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-            // a propos
+            {"// à propos"}
           </p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
             Qui suis-<span style={{ color: "#22d3ee" }}>je</span> ?
@@ -85,17 +103,26 @@ export default function About() {
             transition: "all 0.7s ease 0.2s",
           }}>
             <p style={{ color: "#cbd5e1", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
-              Etudiant en <strong style={{ color: "#ffffff" }}>Master 2 Informatique</strong> a l ENI Fianarantsoa,
-              je me forme a l intelligence artificielle depuis deux ans, d abord en autodidacte puis via
-              une formation structuree chez <span style={{ color: "#22d3ee" }}>Arato Fianarantsoa</span>.
+              Je suis <strong style={{ color: "#ffffff" }}>ingénieur informatique</strong>, spécialisé en
+              <strong style={{ color: "#ffffff" }}> développement full-stack</strong> et en
+              <strong style={{ color: "#ffffff" }}> intelligence artificielle</strong> (ML, DL, NLP).
+              En freelance, j’accompagne des entreprises et des indépendants
+              francophones qui ont besoin d’une application sur mesure ou qui veulent intégrer
+              concrètement l’IA dans leurs outils — sans jargon et sans usine à gaz.
             </p>
             <p style={{ color: "#cbd5e1", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
-              Je construis actuellement un <strong style={{ color: "#ffffff" }}>chatbot educatif multilingue</strong>,
-              fine-tune sur des textes malgache et francais — un defi technique rarement documente.
+              J’ai développé et mis en production, <strong style={{ color: "#ffffff" }}>en autonomie complète</strong>,
+              une application de gestion logistique pour l’État-Major de l’Armée de l’Air : de la maquette
+              au déploiement, jusqu’à la formation des utilisateurs. C’est cette même exigence que
+              j’apporte à chaque mission.
             </p>
             <p style={{ color: "#cbd5e1", lineHeight: 1.8, marginBottom: "36px", fontSize: "15px" }}>
-              Je cherche un <span style={{ color: "#22d3ee" }}>emploi junior</span> ou je touche a de vrais enjeux :
-              analyse de donnees, automatisation intelligente et amelioration de l experience utilisateur.
+              Côté IA, je travaille depuis deux ans sur le{" "}
+              <span style={{ color: "#22d3ee" }}>machine learning, le deep learning et le NLP</span> :
+              chatbots entraînés sur des documents métier, pipelines RAG, agents autonomes et
+              automatisation de tâches répétitives. Je choisis toujours la solution la plus simple
+              qui résout le problème — un modèle sur mesure quand il le faut, une règle bien écrite
+              quand cela suffit.
             </p>
 
             {/* Info list */}
@@ -157,12 +184,13 @@ export default function About() {
               border: "1px solid rgba(6,182,212,0.2)",
             }}>
               <p style={{ color: "#22d3ee", fontSize: "11px", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-                // experience professionnelle
+                {"// référence client"}
               </p>
-              <p style={{ color: "#ffffff", fontWeight: 600, fontSize: "15px" }}>Developpeur Applicatif</p>
-              <p style={{ color: "#94a3b8", fontSize: "13px", marginTop: "4px" }}>Etat-Major de l Armee de l Air, Antananarivo</p>
+              <p style={{ color: "#ffffff", fontWeight: 600, fontSize: "15px" }}>Développeur applicatif</p>
+              <p style={{ color: "#94a3b8", fontSize: "13px", marginTop: "4px" }}>État-Major de l’Armée de l’Air, Antananarivo</p>
               <p style={{ color: "#94a3b8", fontSize: "13px", marginTop: "8px", lineHeight: 1.6 }}>
-                Application web de gestion logistique de la maquette jusqu a la mise en production, en totale autonomie.
+                Application web de gestion logistique livrée de la maquette à la mise en production,
+                en autonomie complète, dans un environnement sécurisé — formation des utilisateurs incluse.
               </p>
             </div>
           </div>

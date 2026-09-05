@@ -12,11 +12,12 @@ export default function Footer() {
   }, []);
 
   const links = [
-    { href: "#about",          label: "A propos" },
-    { href: "#skills",         label: "Competences" },
-    { href: "#projects",       label: "Projets" },
+    { href: "#services",       label: "Prestations" },
+    { href: "#about",          label: "À propos" },
+    { href: "#skills",         label: "Compétences" },
+    { href: "#projects",       label: "Réalisations" },
     { href: "#certifications", label: "Certifications" },
-    { href: "#contact",        label: "Contact" },
+    { href: "#contact",        label: "Devis gratuit" },
   ];
 
   if (!mounted) {
@@ -56,8 +57,8 @@ export default function Footer() {
               {"<"}Alfa<span style={{ color: "#22d3ee" }}>/</span>{">"}
             </div>
             <p style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.7, maxWidth: "240px" }}>
-              Etudiant en Master 2 Informatique, passionne par l IA et la Cybersecurite.
-              Disponible immediatement.
+              Ingénieur informatique freelance — full-stack et IA.
+              J’accompagne des clients francophones, 100 % à distance.
             </p>
           </div>
 
@@ -89,8 +90,8 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {[
                 { label: "alfahashirama@gmail.com", href: "mailto:alfahashirama@gmail.com" },
-                { label: "034 78 284 05", href: "tel:+261347828405" },
-                { label: "Fianarantsoa, Madagascar", href: null },
+                { label: "+261 34 78 284 05", href: "https://wa.me/261347828405" },
+                { label: "Fianarantsoa, Madagascar — 100 % à distance", href: null },
               ].map((item, i) => (
                 item.href ? (
                   <a
@@ -115,7 +116,7 @@ export default function Footer() {
               Stack principal
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-              {["Python", "PyTorch", "HuggingFace", "LangChain", "Splunk", "Next.js"].map((t, i) => (
+              {["Next.js", "React", "TypeScript", "Spring Boot", "Python", "PyTorch", "LangChain", "Docker"].map((t, i) => (
                 <span key={i} style={{
                   fontSize: "11px", fontFamily: "monospace",
                   padding: "3px 10px", borderRadius: "9999px",
@@ -137,7 +138,7 @@ export default function Footer() {
             gap: "12px",
           }}>
             <p style={{ fontSize: "13px", color: "#334155" }}>
-              © {year} RAMANATENANIAVO Nasandratra Alfa. Tous droits reserves.
+              © {year} RAMANATENANIAVO Nasandratra Alfa. Tous droits réservés.
             </p>
             <p style={{ fontSize: "12px", color: "#1e3a70", fontFamily: "monospace" }}>
               Built with Next.js + TypeScript + Tailwind CSS

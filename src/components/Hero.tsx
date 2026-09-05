@@ -3,7 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const titles = ["AI Engineer", "Cybersecurity Analyst", "NLP Developer", "MLOps Engineer"];
+const titles = [
+  "Ingénieur informatique",
+  "Développeur Full-Stack",
+  "Ingénieur IA — ML, DL, NLP",
+  "Freelance en télétravail",
+];
 
 export default function Hero() {
   const [mounted,    setMounted]    = useState(false);
@@ -35,9 +40,10 @@ export default function Hero() {
   }, [mounted, displayed, deleting, titleIndex]);
 
   const stats = [
-    { value: "5+", label: "Projets IA" },
-    { value: "4+", label: "Certifications" },
-    { value: "2+", label: "Ans experience" },
+    { value: "6+",  label: "Projets livrés" },
+    { value: "5+",  label: "Certifications" },
+    { value: "2+",  label: "Ans en IA" },
+    { value: "FR",  label: "Français courant" },
   ];
 
   const sectionStyle: React.CSSProperties = {
@@ -103,19 +109,19 @@ export default function Hero() {
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
             padding: "8px 20px", borderRadius: "9999px",
-            border: "1px solid rgba(6,182,212,0.4)",
-            backgroundColor: "rgba(6,182,212,0.05)",
-            color: "#22d3ee", fontSize: "14px",
+            border: "1px solid rgba(74,222,128,0.4)",
+            backgroundColor: "rgba(74,222,128,0.06)",
+            color: "#4ade80", fontSize: "14px",
             fontFamily: "var(--font-mono), monospace",
             marginBottom: "28px",
           }}>
             <span style={{
               width: "8px", height: "8px", borderRadius: "50%",
-              backgroundColor: "#22d3ee",
+              backgroundColor: "#4ade80",
               animation: "pulse 2s infinite",
               flexShrink: 0,
             }} />
-            Disponible pour un emploi
+            Disponible pour vos projets freelance
           </div>
 
           {/* Name */}
@@ -149,15 +155,15 @@ export default function Hero() {
           {/* Description */}
           <p style={{
             fontSize: "1rem", color: "#94a3b8",
-            marginBottom: "32px", lineHeight: 1.8, maxWidth: "480px",
+            marginBottom: "32px", lineHeight: 1.8, maxWidth: "500px",
           }}>
-            Etudiant en{" "}
-            <span style={{ color: "#ffffff", fontWeight: 600 }}>Master 2 Informatique</span>{" "}
-            a l ENI Fianarantsoa. Specialise en{" "}
-            <span style={{ color: "#22d3ee", fontWeight: 500 }}>Intelligence Artificielle</span>,{" "}
-            <span style={{ color: "#22d3ee", fontWeight: 500 }}>NLP</span>{" "}
-            et{" "}
-            <span style={{ color: "#22d3ee", fontWeight: 500 }}>Cybersecurite</span>.
+            Ingénieur informatique, je conçois et développe des{" "}
+            <span style={{ color: "#ffffff", fontWeight: 600 }}>applications web sur mesure</span>{" "}
+            et des solutions d’
+            <span style={{ color: "#22d3ee", fontWeight: 500 }}>intelligence artificielle</span>{" "}
+            — chatbots, agents IA et automatisation — de la maquette à la mise en production.
+            Je travaille <span style={{ color: "#ffffff", fontWeight: 600 }}>à distance</span>{" "}
+            avec des clients francophones.
           </p>
 
           {/* Buttons */}
@@ -165,7 +171,7 @@ export default function Hero() {
             display: "flex", flexWrap: "wrap", gap: "14px",
             alignItems: "center", marginBottom: "40px",
           }}>
-            <a href="#projects" style={{
+            <a href="#contact" style={{
               backgroundColor: "#06b6d4", color: "#060d18",
               fontWeight: 700, padding: "13px 28px",
               borderRadius: "8px", textDecoration: "none",
@@ -175,9 +181,9 @@ export default function Hero() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#22d3ee"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#06b6d4"; }}
             >
-              Voir mes projets
+              Discutons de votre projet
             </a>
-            <a href="#contact" style={{
+            <a href="#services" style={{
               border: "1px solid #06b6d4", color: "#22d3ee",
               fontWeight: 700, padding: "13px 28px",
               borderRadius: "8px", textDecoration: "none",
@@ -195,9 +201,9 @@ export default function Hero() {
               el.style.color = "#22d3ee";
             }}
             >
-              Me contacter
+              Mes prestations
             </a>
-            <a href="/cv-alfa.pdf" target="_blank" rel="noopener noreferrer" style={{
+            <a href="#projects" style={{
               border: "1px solid #475569", color: "#94a3b8",
               fontWeight: 700, padding: "13px 28px",
               borderRadius: "8px", textDecoration: "none",
@@ -215,7 +221,7 @@ export default function Hero() {
               el.style.color = "#94a3b8";
             }}
             >
-              Telecharger CV
+              Voir mes réalisations
             </a>
           </div>
 
@@ -275,7 +281,7 @@ export default function Hero() {
             }}>
               <Image
                 src="/photo-alfa.jpg"
-                alt="RAMANATENANIAVO Nasandratra Alfa"
+                alt="RAMANATENANIAVO Nasandratra Alfa, développeur freelance full-stack et IA"
                 width={220}
                 height={220}
                 style={{
@@ -300,12 +306,12 @@ export default function Hero() {
               whiteSpace: "nowrap",
               boxShadow: "0 4px 12px rgba(6,182,212,0.4)",
             }}>
-              Master 2 IA
+              Ingénieur · Full-Stack & IA
             </div>
           </div>
 
           {/* Social links sous la photo */}
-          <div style={{ display: "flex", gap: "12px" }}>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
             {[
               { href: "https://github.com/", text: "GitHub" },
               { href: "https://linkedin.com/", text: "LinkedIn" },

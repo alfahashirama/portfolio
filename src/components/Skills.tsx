@@ -4,6 +4,19 @@ import { useState, useEffect, useRef } from "react";
 
 const skillCategories = [
   {
+    id: "dev",
+    title: "Développement Full-Stack",
+    icon: "💻",
+    skills: [
+      { name: "Python & Flask", level: 85 },
+      { name: "Java & Spring Boot", level: 75 },
+      { name: "JavaScript & Express.js", level: 75 },
+      { name: "TypeScript & React", level: 78 },
+      { name: "Next.js & React 19", level: 75 },
+      { name: "API REST & JSON", level: 80 },
+    ],
+  },
+  {
     id: "ai",
     title: "Intelligence Artificielle",
     icon: "🤖",
@@ -17,29 +30,29 @@ const skillCategories = [
     ],
   },
   {
-    id: "cyber",
-    title: "Cybersecurite",
-    icon: "🔐",
+    id: "agents",
+    title: "Agents IA & MLOps",
+    icon: "⚙️",
     skills: [
-      { name: "Analyse SOC & SIEM", level: 70 },
-      { name: "Splunk", level: 72 },
-      { name: "Analyse de logs", level: 68 },
-      { name: "Detection d intrusions", level: 65 },
-      { name: "Windows Server & AD", level: 70 },
-      { name: "GPO & Gestion acces", level: 68 },
+      { name: "LangChain & CrewAI", level: 72 },
+      { name: "LLaMA 3", level: 70 },
+      { name: "RAG & Prompt Engineering", level: 75 },
+      { name: "Automatisation n8n", level: 68 },
+      { name: "MLOps & Déploiement", level: 65 },
+      { name: "Pipelines ML", level: 70 },
     ],
   },
   {
-    id: "dev",
-    title: "Developpement",
-    icon: "💻",
+    id: "db",
+    title: "Bases de données",
+    icon: "🗄️",
     skills: [
-      { name: "Python & Flask", level: 85 },
-      { name: "Java & Spring Boot", level: 75 },
-      { name: "JavaScript & Express.js", level: 75 },
-      { name: "TypeScript & React", level: 72 },
-      { name: "API REST & JSON", level: 80 },
-      { name: "HTML/CSS", level: 75 },
+      { name: "PostgreSQL", level: 78 },
+      { name: "MySQL", level: 75 },
+      { name: "MongoDB", level: 68 },
+      { name: "Conception de BDD", level: 75 },
+      { name: "Optimisation de requêtes", level: 70 },
+      { name: "Administration de BDD", level: 68 },
     ],
   },
   {
@@ -52,46 +65,33 @@ const skillCategories = [
       { name: "Terraform", level: 65 },
       { name: "GitHub Actions CI/CD", level: 75 },
       { name: "Artifact Registry GCP", level: 65 },
-      { name: "Linux & Administration", level: 78 },
+      { name: "Administration Linux", level: 78 },
     ],
   },
   {
-    id: "db",
-    title: "Bases de donnees",
-    icon: "🗄️",
+    id: "cyber",
+    title: "Cybersécurité",
+    icon: "🔐",
     skills: [
-      { name: "PostgreSQL", level: 78 },
-      { name: "MySQL", level: 75 },
-      { name: "MongoDB", level: 68 },
-      { name: "Conception BDD", level: 75 },
-      { name: "Optimisation requetes", level: 70 },
-      { name: "Administration BDD", level: 68 },
+      { name: "Analyse SOC & SIEM", level: 70 },
+      { name: "Splunk", level: 72 },
+      { name: "Analyse de logs", level: 68 },
+      { name: "Détection d’intrusions", level: 65 },
+      { name: "Windows Server & AD", level: 70 },
+      { name: "GPO & Gestion des accès", level: 68 },
     ],
   },
   {
     id: "admin",
-    title: "Administration Systeme",
+    title: "Administration système",
     icon: "🖥️",
     skills: [
       { name: "Windows Server", level: 72 },
       { name: "Active Directory", level: 70 },
       { name: "GPO (Group Policy)", level: 68 },
       { name: "Gestion utilisateurs", level: 75 },
-      { name: "Gestion des acces", level: 72 },
+      { name: "Gestion des accès", level: 72 },
       { name: "Linux Administration", level: 78 },
-    ],
-  },
-  {
-    id: "agents",
-    title: "Agents IA & MLOps",
-    icon: "⚙️",
-    skills: [
-      { name: "LangChain & CrewAI", level: 72 },
-      { name: "LLaMA 3", level: 70 },
-      { name: "RAG & Prompt Engineering", level: 75 },
-      { name: "n8n Automatisation", level: 68 },
-      { name: "MLOps & Deploiement", level: 65 },
-      { name: "Pipelines ML", level: 70 },
     ],
   },
 ];
@@ -99,7 +99,7 @@ const skillCategories = [
 const techStack = [
   "Python", "Flask", "PyTorch", "TensorFlow", "HuggingFace",
   "LangChain", "CrewAI", "LLaMA 3", "n8n", "RAG",
-  "Java", "Spring Boot", "JavaScript", "Express.js", "TypeScript", "React", "React Vite",
+  "Java", "Spring Boot", "JavaScript", "TypeScript", "React", "Next.js", "React Vite", "Express.js",
   "Docker", "Kubernetes", "GKE", "Terraform", "Artifact Registry", "Docker Hub",
   "PostgreSQL", "MySQL", "MongoDB",
   "Splunk", "SIEM", "Linux", "Git", "GitHub Actions", "CI/CD",
@@ -131,7 +131,7 @@ function SkillBar({ name, level, visible }: SkillBarProps) {
 export default function Skills() {
   const [mounted,   setMounted]   = useState(false);
   const [visible,   setVisible]   = useState(false);
-  const [activeTab, setActiveTab] = useState("ai");
+  const [activeTab, setActiveTab] = useState("dev");
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => { setMounted(true); }, []);
@@ -152,7 +152,7 @@ export default function Skills() {
     return (
       <section id="skills" style={{ padding: "96px 0", backgroundColor: "#070e1f" }}>
         <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 24px" }}>
-          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>// competences</p>
+          <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "monospace" }}>{"// compétences"}</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#ffffff" }}>Mes <span style={{ color: "#22d3ee" }}>Skills</span></h2>
         </div>
       </section>
@@ -171,7 +171,7 @@ export default function Skills() {
           transition: "all 0.7s ease",
         }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "8px" }}>
-            // competences
+            {"// compétences"}
           </p>
           <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
             Mes <span style={{ color: "#22d3ee" }}>Skills</span>
@@ -225,7 +225,7 @@ export default function Skills() {
         {/* Tech stack */}
         <div style={{ opacity: visible ? 1 : 0, transition: "all 0.7s ease 0.3s" }}>
           <p style={{ color: "#22d3ee", fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-mono), monospace", marginBottom: "16px" }}>
-            // tech stack complet
+            {"// tech stack complet"}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
             {techStack.map((tech, i) => (

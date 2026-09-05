@@ -1,6 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind v4 : le thème se déclare en CSS, il n'y a plus de tailwind.config.ts. */
+@theme {
+  --color-navy-50: #e8edf5;
+  --color-navy-100: #c5d0e6;
+  --color-navy-200: #9fb0d5;
+  --color-navy-300: #7890c4;
+  --color-navy-400: #5a77b8;
+  --color-navy-500: #3b5ea6;
+  --color-navy-600: #2d4d8e;
+  --color-navy-700: #1e3a70;
+  --color-navy-800: #112652;
+  --color-navy-900: #0a1628;
+  --color-navy-950: #060d18;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-fira), "Fira Code", ui-monospace, monospace;
+
+  --animate-fade-in: fadeIn 0.6s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Utilisé par le curseur du titre animé et le point « disponible » du Hero. */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
 
 @layer base {
   html {
@@ -41,7 +76,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-fira), monospace;
   }
   .card {
     background-color: #112652;
@@ -58,7 +93,7 @@
     background-color: #1e3a70;
     color: #22d3ee;
     font-size: 0.75rem;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-fira), monospace;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     border: 1px solid #2d4d8e;
