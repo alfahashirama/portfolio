@@ -1,8 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// Même source que `metadataBase` dans layout.tsx : renseigner NEXT_PUBLIC_SITE_URL
-// dans les variables d'environnement Vercel avec l'URL réelle du site.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-alfa.vercel.app";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const maj = new Date();

@@ -14,9 +14,7 @@ const firaCode = Fira_Code({
   display: "swap",
 });
 
-// Renseignez NEXT_PUBLIC_SITE_URL dans .env.local (ou dans les variables Vercel)
-// avec l'URL réelle du site une fois le domaine choisi.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-alfa.vercel.app";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 const description =
   "Ingénieur informatique freelance, spécialisé en développement full-stack et en IA (ML, DL, NLP). " +
@@ -60,20 +58,11 @@ export const metadata: Metadata = {
     siteName: "Alfa Nasandratra - Ingénieur Informatique Freelance",
     title: "Ingénieur Informatique Freelance - Full-Stack & IA",
     description,
-    images: [
-      {
-        url: "/photo-alfa.jpg",
-        width: 1200,
-        height: 630,
-        alt: "RAMANATENANIAVO Nasandratra Alfa, ingénieur informatique freelance full-stack et IA",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ingénieur Informatique Freelance - Full-Stack & IA",
     description,
-    images: ["/photo-alfa.jpg"],
   },
   robots: {
     index: true,
